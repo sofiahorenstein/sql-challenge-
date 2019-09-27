@@ -53,6 +53,7 @@ CREATE TABLE titles (
     "to_date" VARCHAR(30) NOT NULL
 );
 
+--show tables with attached data 
 SELECT * FROM titles;
 SELECT * FROM departments;
 SELECT * FROM dept_emp;

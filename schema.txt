@@ -98,28 +98,9 @@ departments_ID INTEGER PK
 dept_no VARCHAR 
 dept_name VARCHAR
 
-dept_emp
--
-dept_emp_ID INTEGER PK
-departments_ID INTEGER FK - departments.departments_ID
-dept_no VARCHAR
-from_date VARCHAR
-to_date VARCHAR
-
-dept_manager
--
-dept_manager_ID INTEGER PK
-dept_emp_ID INTEGER FK - dept_emp.dept_emp_ID
-dept_no VARCHAR
-emp_no INTEGER
-from_date VARCHAR
-to_date VARCHAR
-
 employees
 -
 employees_ID INTEGER PK
-dept_emp_ID INTEGER FK - dept_emp.dept_emp_ID
-dept_manager_ID INTEGER FK - dept_manager.dept_manager_ID
 emp_no INTEGER
 birth_date VARCHAR
 first_name VARCHAR
@@ -127,11 +108,29 @@ last_name VARCHAR
 gender VARCHAR
 hire_date VARCHAR
 
+
+dept_emp
+-
+departments_ID INTEGER FK >- departments.departments_ID
+employees_ID INTEGER FK >- employees.employees_ID
+emp_no INTEGER
+dept_no VARCHAR
+from_date VARCHAR
+to_date VARCHAR
+
+dept_manager
+-
+departments_ID INTEGER FK >- departments.departments_ID
+employees_ID INTEGER FK >- employees.employees_ID
+dept_no VARCHAR
+emp_no INTEGER
+from_date VARCHAR
+to_date VARCHAR
+
+
 salaries
 -
-salaries_ID INTEGER PK
-dept_emp_ID INTEGER FK - dept_emp.dept_emp_ID
-dept_manager_ID INTEGER FK - dept_manager.dept_manager_ID
+employees_ID INTEGER FK >- employees.employees_ID
 emp_no INTEGER
 salary INTEGER
 from_date VARCHAR
@@ -139,10 +138,10 @@ to_date VARCHAR
 
 titles
 -
-titles_ID INTEGER PK
-dept_emp_ID INTEGER FK - dept_emp.dept_emp_ID
-dept_manager_ID INTEGER FK - dept_manager.dept_manager_ID
+employees_ID INTEGER FK >- employees.employees_ID
 emp_no INTEGER
 title VARCHAR
 from_date VARCHAR
 to_date VARCHAR
+
+
